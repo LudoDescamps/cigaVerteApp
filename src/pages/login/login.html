@@ -1,0 +1,17 @@
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="userData.username" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" value="" [(ngModel)]="userData.password"></ion-input>
+    </ion-item>
+
+    <button ion-button outline block (click)="login()">Connexion</button>
+
+  </ion-list>
+</ion-content>

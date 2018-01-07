@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons right>
+      <button ion-button (click)="logout()">Déconnexion</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="/assets/imgs/graphRoanne.jpg" />
+    <div class="card-title">Bonjour {{userDetails?.name}}</div>
+    <div class="card-subtitle">Vous avez accès au catalogue en ligne de CigaVerte {{storeDetails?.name}}</div>
+    <div class="card-informations">
+      <div>
+        <div *ngIf="storeDetails; else storeDetailsEmpty">
+
+          Informations :
+          <br> {{storeDetails?.name}}
+          <br> {{storeDetails?.address}}
+          <br> {{storeDetails?.postCode}}, {{storeDetails?.city}}. {{storeDetails?.country}}
+          <br> {{storeDetails?.phone}}
+          <br> {{storeDetails?.email}}
+          <br>
+
+
+        </div>
+        <ng-template #storeDetailsEmpty>Ce compte n'est attaché à aucun magasin CigaVerte. Contactez l'administrateur.</ng-template>
+      </div>
+      <button ion-button outline block (click)="catalog()">Accéder au catalogue</button>
+    </div>
+
+    
+  </ion-card>
+
+
+
+</ion-content>

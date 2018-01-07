@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Catalogue CigaVerte {{storeDetails?.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let item of itemsList">
+        <ion-card>
+          <a href="#" (click)="ViewDetails(item)">
+            <img src="/assets/imgs/1.jpg" />
+          </a>
+          <ion-card-content>
+            <ion-card-title>
+              {{item?.name}}
+            </ion-card-title>
+            <p class="reference">{{item.reference}}</p>
+            <p>
+              {{item?.comment}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

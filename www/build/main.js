@@ -205,8 +205,11 @@ var CatalogPage = (function () {
         console.log('ViewProduit : ' + item.name);
     };
     CatalogPage.prototype.initializeItems = function () {
-        this.articles = [this.itemsList[0]];
-        console.log(this.articles[0]);
+        this.articles = [
+            'Amsterdam',
+            'Bogota',
+            'Paris'
+        ];
     };
     CatalogPage.prototype.getItemsSearch = function (ev) {
         // Reset items back to all of the items
@@ -220,7 +223,7 @@ var CatalogPage = (function () {
         // if the value is an empty string don't filter the items
         if (val && val.trim() != '') {
             this.articles = this.articles.filter(function (article) {
-                // return (article.indexOf(val) > -1);
+                return (article.toLowerCase().indexOf(val.toLowerCase()) > -1);
             });
         }
     };
@@ -228,10 +231,10 @@ var CatalogPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
             selector: 'page-catalog',template:/*ion-inline-start:"C:\WorkSpace\ionic3\cigaVerteApp\src\pages\catalog\catalog.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Catalogue CigaVerte {{storeDetails?.name}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-searchbar (ionInput)="getItemsSearch($event)"></ion-searchbar>\n    <ion-list>\n      <ion-item *ngFor="let article of articles">\n        {{ article }}\n      </ion-item>\n    </ion-list>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-4 *ngFor="let item of itemsList">\n        <ion-card>\n          <a href="#" (click)="ViewDetails(item)">\n            <img src="/assets/imgs/1.jpg" />\n          </a>\n          <ion-card-content>\n            <ion-card-title>\n              {{item?.name}}\n            </ion-card-title>\n            <p class="reference">{{item.reference}}</p>\n            <p>\n              {{item?.comment}}\n            </p>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\WorkSpace\ionic3\cigaVerteApp\src\pages\catalog\catalog.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
     ], CatalogPage);
     return CatalogPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=catalog.js.map

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
 import { CatalogPage } from '../catalog/catalog';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { SearchPage } from '../search/search';
 
 @Component({
   selector: 'page-home',
@@ -48,5 +49,8 @@ export class HomePage {
 
   catalog() {
     this.navCtrl.push(CatalogPage);
+  }
+  search() {
+    this.navCtrl.push(SearchPage);
   }
 }

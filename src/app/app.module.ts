@@ -1,3 +1,4 @@
+import { SearchPage } from './../pages/search/search';
 import { ItemDetailsPage } from './../pages/item-details/item-details';
 import { HttpModule } from '@angular/http';
 import { SignupPage } from './../pages/signup/signup';
@@ -22,7 +23,8 @@ import { CatalogPage } from '../pages/catalog/catalog';
     LoginPage,
     SignupPage,
     CatalogPage,
-    ItemDetailsPage
+    ItemDetailsPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { CatalogPage } from '../pages/catalog/catalog';
     LoginPage,
     SignupPage,
     CatalogPage,
-    ItemDetailsPage
+    ItemDetailsPage,
+    SearchPage
   ],
   providers: [
     StatusBar,

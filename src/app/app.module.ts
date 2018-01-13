@@ -15,6 +15,7 @@ import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { StoreServiceProvider } from '../providers/store-service/store-service';
 import { CatalogPage } from '../pages/catalog/catalog';
+import { SettingsServiceProvider } from '../providers/settings-service/settings-service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CatalogPage } from '../pages/catalog/catalog';
     AuthServiceProvider,
     HttpModule,
     StoreServiceProvider,
-    ScreenOrientation
+    ScreenOrientation,
+    SettingsServiceProvider
   ]
 })
 export class AppModule {}

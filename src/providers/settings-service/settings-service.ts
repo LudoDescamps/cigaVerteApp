@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class SettingsServiceProvider {
   settings: Settings = {
-    language: 'french'
+    language: 'fr'
   }
 
   constructor() {

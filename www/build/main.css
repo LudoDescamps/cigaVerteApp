@@ -25718,6 +25718,10 @@ page-home .card-informations {
   color: #fff;
 }
 
+page-item-details .comment {
+  white-space: pre-line;
+}
+
 page-welcome #welcome {
   background-color: #292828;
 }

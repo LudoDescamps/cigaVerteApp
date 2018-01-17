@@ -70,4 +70,8 @@ export class ItemDetailsPage {
     console.log('ViewProduit : '+item);
   }
 
+  newlines(text){
+    return text.replace(/\n/g, '<br/>');
+  }
+
 }

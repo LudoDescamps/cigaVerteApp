@@ -205,11 +205,8 @@ var CatalogPage = (function () {
         console.log('ViewProduit : ' + item.name);
     };
     CatalogPage.prototype.initializeItems = function () {
-        this.articles = [
-            'Amsterdam',
-            'Bogota',
-            'Paris'
-        ];
+        this.articles = [this.itemsList[0]];
+        console.log(this.articles[0]);
     };
     CatalogPage.prototype.getItemsSearch = function (ev) {
         // Reset items back to all of the items
@@ -223,7 +220,7 @@ var CatalogPage = (function () {
         // if the value is an empty string don't filter the items
         if (val && val.trim() != '') {
             this.articles = this.articles.filter(function (article) {
-                return (article.toLowerCase().indexOf(val.toLowerCase()) > -1);
+                // return (article.indexOf(val) > -1);
             });
         }
     };
@@ -313,9 +310,12 @@ var ItemDetailsPage = (function () {
         this.navCtrl.push(ItemDetailsPage_1, { item: item });
         console.log('ViewProduit : ' + item);
     };
+    ItemDetailsPage.prototype.newlines = function (text) {
+        return text.replace(/\n/g, '<br/>');
+    };
     ItemDetailsPage = ItemDetailsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-item-details',template:/*ion-inline-start:"C:\WorkSpace\ionic3\cigaVerteApp\src\pages\item-details\item-details.html"*/'<!--\n  Generated template for the ItemDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>itemDetails</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  {{item?.name}}\n</ion-content>\n'/*ion-inline-end:"C:\WorkSpace\ionic3\cigaVerteApp\src\pages\item-details\item-details.html"*/,
+            selector: 'page-item-details',template:/*ion-inline-start:"C:\WorkSpace\ionic3\cigaVerteApp\src\pages\item-details\item-details.html"*/'<!--\n  Generated template for the ItemDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>itemDetails</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  \n  <ion-card>\n      <img src="img/nin-live.png"/>\n      <ion-card-content>\n        <ion-card-title>\n            {{item?.name}}\n          </ion-card-title>\n        <p>\n          {{item?.keywords}}\n        </p><br>\n        <p class="comment">{{item?.comment}}</p>\n      </ion-card-content>\n    </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\WorkSpace\ionic3\cigaVerteApp\src\pages\item-details\item-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* App */],
             __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthServiceProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]])
@@ -350,27 +350,27 @@ webpackEmptyAsyncContext.id = 118;
 
 var map = {
 	"../pages/catalog/catalog.module": [
-		286,
+		282,
 		5
 	],
 	"../pages/item-details/item-details.module": [
-		284,
+		283,
 		4
 	],
 	"../pages/login/login.module": [
-		282,
+		284,
 		3
 	],
 	"../pages/search/search.module": [
-		281,
+		285,
 		2
 	],
 	"../pages/signup/signup.module": [
-		283,
+		286,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		285,
+		287,
 		0
 	]
 };
@@ -455,9 +455,10 @@ var SignupPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
             selector: 'page-signup',template:/*ion-inline-start:"C:\WorkSpace\ionic3\cigaVerteApp\src\pages\signup\signup.html"*/'<ion-content padding>\n  <ion-list>\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" value="" [(ngModel)]="userData.name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input type="text" value="" [(ngModel)]="userData.email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Username</ion-label>\n      <ion-input type="text" value="" [(ngModel)]="userData.username"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input type="password" value="" [(ngModel)]="userData.password"></ion-input>\n    </ion-item>\n\n    <button ion-button outline block (click)="signup()">S\'enregistrer</button>\n\n    <a href="#" (click)="login()">Connection</a>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\WorkSpace\ionic3\cigaVerteApp\src\pages\signup\signup.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _c || Object])
     ], SignupPage);
     return SignupPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=signup.js.map
@@ -499,12 +500,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_auth_service_auth_service__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_store_service_store_service__ = __webpack_require__(280);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_catalog_catalog__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_settings_service_settings_service__ = __webpack_require__(281);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -540,12 +543,12 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/catalog/catalog.module#CatalogPageModule', name: 'CatalogPage', segment: 'catalog', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-details/item-details.module#ItemDetailsPageModule', name: 'ItemDetailsPage', segment: 'item-details', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/catalog/catalog.module#CatalogPageModule', name: 'CatalogPage', segment: 'catalog', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -566,7 +569,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_13__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_14__providers_store_service_store_service__["a" /* StoreServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_9__ionic_native_screen_orientation__["a" /* ScreenOrientation */]
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
+                __WEBPACK_IMPORTED_MODULE_16__providers_settings_service_settings_service__["a" /* SettingsServiceProvider */]
             ]
         })
     ], AppModule);
@@ -671,6 +675,54 @@ var StoreServiceProvider = (function () {
 
 /***/ }),
 
+/***/ 281:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/*
+  Generated class for the SettingsServiceProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var SettingsServiceProvider = (function () {
+    function SettingsServiceProvider() {
+        this.settings = {
+            language: 'fr'
+        };
+        if (localStorage.getItem('settings') != null) {
+            this.settings = JSON.parse(localStorage.getItem('settings'));
+        }
+    }
+    SettingsServiceProvider.prototype.getSettings = function () {
+        return this.settings;
+    };
+    SettingsServiceProvider.prototype.changeSettings = function (settings) {
+        localStorage.setItem('settings', JSON.stringify(settings));
+    };
+    SettingsServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], SettingsServiceProvider);
+    return SettingsServiceProvider;
+}());
+
+//# sourceMappingURL=settings-service.js.map
+
+/***/ }),
+
 /***/ 32:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -693,7 +745,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var apiUrl = "http://localhost/PHP-Slim-Restful/api/";
+var apiUrl = "http://www.at-the-villa.com/cigaverte/";
 var AuthServiceProvider = (function () {
     function AuthServiceProvider(http) {
         this.http = http;
@@ -712,9 +764,10 @@ var AuthServiceProvider = (function () {
     };
     AuthServiceProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]) === "function" && _a || Object])
     ], AuthServiceProvider);
     return AuthServiceProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=auth-service.js.map
